@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-size: 30px;
+            animation-duration: 12s;
+            animation-name: text-animation;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes text-animation {
+            0% {
+                opacity: 0;
+            }
+
+            8.33%,
+            16.66%,
+            25%,
+            33.33%,
+            41.66%,
+            50%,
+            58.33%,
+            66.66%,
+            75%,
+            83.33%,
+            91.66% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="text">
+        LA LA
+    </div>
+    <div id="image">
+        <img src="saveme.gif" alt="Dog Image" width="300" height="200">
+    </div>
+
+    <script>
+        var audio = new Audio('Forensic-Malayalam-La-La-La-Psycho-Boy-BGM-[AudioTrimmer.com].mp3');
+        audio.addEventListener('ended', function () {
+            window.location.href = 'delete2.html';
+        });
+
+        audio.play();
+
+        setTimeout(function () {
+            var textElement = document.getElementById('text');
+            textElement.textContent = 'LA LA LALALALA';
+        }, 1000);
+
+        setTimeout(function () {
+            var textElement = document.getElementById('text');
+            textElement.textContent = 'LALA';
+        }, 4000);
+
+        setTimeout(function () {
+            var textElement = document.getElementById('text');
+            textElement.textContent = 'LA LAA';
+        }, 6000);
+
+        setTimeout(function () {
+            var textElement = document.getElementById('text');
+            textElement.textContent = 'LAlala la LAlala la';
+        }, 9000);
+
+        setTimeout(function () {
+            var imageElement = document.getElementById('image');
+            imageElement.style.display = 'block';
+
+            setTimeout(function () {
+                imageElement.style.display = 'none';
+            }, 4000);
+        }, 6000);
+    </script>
+</body>
+
+</html>

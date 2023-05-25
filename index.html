@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background-image: url("spooky-creepy-haunted-house.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #transparent-div-window {
+            background-color: rgba(9, 9, 9, 0);
+            /* Adjust the last value for opacity */
+            width: 150px;
+            height: 270px;
+            transform: translate(924px, 629px);
+            cursor: pointer;
+        }
+
+        #top-windows {
+            background-color: rgba(5, 4, 4, 0);
+            /* Adjust the last value for opacity */
+            width: 120px;
+            height: 130px;
+            transform: translate(952px, 30px);
+            cursor: pointer;
+        }
+
+        #bottom-windows {
+            background-color: rgba(88, 35, 35, 0);
+            /* Adjust the last value for opacity */
+            width: 320px;
+            height: 330px;
+            transform: translate(330px, 85px);
+            cursor: pointer;
+        }
+
+        #calling-bell {
+            position: relative;
+            width: 30px;
+            height: 60px;
+            border: 2px solid black;
+            border-radius: 50px;
+            margin: 0 auto;
+            background-color: #663838;
+            cursor: pointer;
+            overflow: hidden;
+            opacity: 0.8;
+            transform: translate(250px, -70px);
+        }
+
+        #calling-bell-inner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background-color: #000000;
+        }
+
+        #calling-bell-inner:before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-top: 2px solid black;
+            border-radius: 50%;
+            background-color: #312a98;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="transparent-div-window">
+        <!-- Add content here -->door
+    </div>
+
+    <div id="top-windows">
+        <!-- Add content here -->glass window
+    </div>
+    <div id="bottom-windows">
+        <!-- Add content here -->
+    </div>
+    <div id="calling-bell">
+        <div id="calling-bell-inner"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var divWindow = document.getElementById('transparent-div-window');
+            var audioDoor = new Audio('knock-on-door-6228.mp3'); // Replace 'knock-on-door-6228.mp3' with the path to your audio file
+            var count = 0;
+
+            divWindow.addEventListener('click', function () {
+                count++;
+                if (count === 3) {
+                    audioDoor.pause();
+                    var audioRedirect = new Audio('redirect-music.mp3'); // Replace 'redirect-music.mp3' with the path to your audio file
+                    audioRedirect.addEventListener('ended', function () {
+                        window.location.href = 'redirect.html'; // Replace 'redirect.html' with the URL of the redirect HTML page
+                    });
+                    audioRedirect.play();
+                } else {
+                    audioDoor.play();
+                }
+            }, { once: false });
+
+            var topWindows = document.getElementById('top-windows');
+            topWindows.addEventListener('click', function () {
+                var audioGlass = new Audio('glass-breaking-93803.mp3'); // Replace 'glass-breaking-93803.mp3' with the path to your audio file
+                audioGlass.play();
+            }, { once: false });
+
+            var callingBell = document.getElementById('calling-bell-inner');
+            callingBell.addEventListener('click', function () {
+                count++;
+                if (count > 3) {
+                    var audioRedirect = new Audio('door-2-6841.mp3'); // Replace 'redirect-music.mp3' with the path to your audio file
+                    audioRedirect.addEventListener('ended', function () {
+                        window.location.href = 'redirect.html'; // Replace 'redirect.html' with the URL of the redirect HTML page
+                    });
+                    audioRedirect.play();
+                } else {
+                    var audioBell = new Audio('doorbell1-93978.mp3'); // Replace 'doorbell1-93978.mp3' with the path to your audio file
+                    audioBell.play();
+                }
+            }, { once: false });
+
+            var bottomWindows = document.getElementById('bottom-windows');
+            bottomWindows.addEventListener('click', function () {
+                var audioGlass = new Audio('glass-breaking-93803.mp3'); // Replace 'glass-breaking-93803.mp3' with the path to your audio file
+                audioGlass.play();
+            }, { once: false });
+        });
+    </script>
+</body>
+
+</html>
