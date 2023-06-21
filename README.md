@@ -1,2 +1,2 @@
 # HauntedHouse.github.io
-check out the progress
+@ https://sushanth-hebri.github.io/HauntedHouse.github.io/
